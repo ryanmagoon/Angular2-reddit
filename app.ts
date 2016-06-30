@@ -1,6 +1,18 @@
 import { bootstrap } from "@angular/platform-browser-dynamic";
 import { Component } from '@angular/core';
 
+class Article {
+  title: string;
+  link: string;
+  votes: number;
+
+  constructor(title: string, link: string, votes?: number){
+    this.title = title;
+    this.link = link;
+    this.votes = votes || 0;
+ }
+}
+
 @Component({
   selector: 'reddit-article',
   host: {
@@ -51,10 +63,12 @@ class ArticleComponent {
 
   voteUp() {
     this.votes += 1;
+    return false;
   }
 
   voteDown() {
     this.votes -= 1;
+    return false;
   }
 }
 
