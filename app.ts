@@ -60,6 +60,7 @@ class ArticleComponent {
 
 @Component({
     selector: 'reddit',
+    directives: [ArticleComponent],
     template: `
       <form class="ui large form segment">
         <h3 class="ui header">Add a Link</h3>
@@ -78,6 +79,11 @@ class ArticleComponent {
           Submit link
         </button>
       </form>
+
+      <div class="ui grid posts">
+        <reddit-article>
+        </reddit-article>
+      </div>
     `
 })
 class RedditApp {
